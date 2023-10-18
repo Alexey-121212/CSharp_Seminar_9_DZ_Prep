@@ -1,15 +1,29 @@
 ﻿// Найти индекс первого элемента трех последовательных с максимальной суммой
 
+using static ArrayCreator;
+using System.Diagnostics;
+
 Console.Clear();
 
-// int[] massiv = CreateFillPrintRndIntArray(30);
-int[] massiv = { 4, 6, 1, 4, 7, 9, 2, 4, 6, 1 };
+int[] massiv = CreateFillRndIntArray(10000000);
+//int[] massiv = { 9, 2, 7, 9, 4 };
 
-ArrayCreator.PrintRndIntArray(massiv,0);
+Stopwatch sw = new Stopwatch();
 
-Console.WriteLine();
-Console.WriteLine();
-Console.WriteLine(ArrayCreator.FindThreeMax(massiv));
+// PrintRndIntArray(massiv, 0);
+sw.Start();
+Console.WriteLine("\t" + FindThreeMax(massiv));
+sw.Stop();
+Console.WriteLine("   " + sw.ElapsedMilliseconds);
+sw.Reset();
+
+// PrintRndIntArray(massiv, 0);
+sw.Start();
+Console.WriteLine("\t" + NewFindThreeMax(massiv));
+sw.Stop();
+Console.WriteLine("   " + sw.ElapsedMilliseconds);
+
+
 
 // int startMaxThreeIndex = ArrayCreator.FindThreeMax(massiv);
 
