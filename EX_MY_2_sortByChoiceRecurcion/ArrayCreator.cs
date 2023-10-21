@@ -60,9 +60,24 @@ public static class ArrayCreator
             PrintRndIntArray(arr, startElement + 1);
         }
     }
-    public static int[] SortArrayChoice(int[] unsortedArr)
+
+    public static void SortArrayChoice(int[] unsortedArr, int startElement = 0)
     {
-        int[] sortedArr = new int[unsortedArr.GetLength(0)];
-        return sortedArr;
+        int workElement = startElement;
+        int temp;
+        while (workElement < unsortedArr.GetLength(0) - 1)
+        {
+            for (int i = workElement+1; i < unsortedArr.GetLength(0); i++)
+            {
+                if (unsortedArr[i] < unsortedArr[workElement])
+                {
+                    temp = unsortedArr[workElement];
+                    unsortedArr[workElement] = unsortedArr[i];
+                    unsortedArr[i] = temp;
+                }
+            }
+            workElement++;
+            SortArrayChoice(unsortedArr, workElement);
+        }
     }
 }
